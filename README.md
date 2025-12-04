@@ -122,6 +122,43 @@ python .\scripts\serve_diagram.py
 
 ---
 
+## 🖼️ Visualizaciones y capturas (para README)
+
+Para facilitar la revisión y la demostración, añado capturas de pantalla en `docs/images/` con los siguientes nombres exactos:
+
+- `diagram_architecture.png` — Diagrama de arquitectura general
+- `mermaid_sequence.png` — Captura del diagrama de secuencia Mermaid
+- `ui_query.png` — Captura de la UI mostrando una consulta y las fuentes devueltas
+- `agent_created_solicitud.png` — Captura del JSON creado por el agente
+- `logs_analysis.png` — Captura del resultado del análisis de logs o del CSV abierto
+- `banner.png` (opcional) — Banner para la parte superior del README
+
+**Secuencia RAG → Agente (Mermaid):**
+```mermaid
+sequenceDiagram
+  participant U as Usuario
+  participant UI as Frontend
+  participant API as FastAPI
+  participant R as RAG
+  participant A as Agente
+  U->>UI: Envía pregunta
+  UI->>API: POST /api/query
+  API->>R: Recuperación + LLM
+  R-->>API: Respuesta con fuentes
+  API-->>UI: Resultado
+  U->>UI: Pedir crear solicitud
+  UI->>API: POST /api/agent
+  API->>A: Ejecuta acción (genera JSON)
+  A-->>API: Ruta del archivo creado
+```
+
+**Captura de la UI:**  
+![Consulta en la UI](docs/images/ui_query.png)
+
+**Solicitud creada por el agente (captura):**  
+![Solicitud JSON](docs/images/agent_created_solicitud.png)
+```
+
 ## 🏗️ Estructura del Proyecto
 
 ```
