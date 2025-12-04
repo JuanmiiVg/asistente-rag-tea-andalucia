@@ -1,0 +1,64 @@
+# Archivos generados y dependencias
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Entorno virtual
+venv/
+ENV/
+env/
+.venv
+
+# Variables de entorno (SECRETOS - NUNCA subir)
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Bases de datos y cachés
+*.db
+*.sqlite
+*.sqlite3
+*.pdb
+
+# Logs
+*.log
+logs/
+
+# Temporal
+tmp/
+temp/
+*.tmp
+
+# Específico del proyecto
+embeddings/embeddings.npy
+embeddings/chunks_metadata.json
+data_clean/
+chunks/chunks.json
+chunks/chunks.jsonl
+data/solicitudes/*.json
+perfiles/*.json

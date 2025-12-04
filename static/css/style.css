@@ -1,0 +1,349 @@
+:root {
+    --primary-color: #1a73e8;
+    --primary-hover: #1557b0;
+    --secondary-color: #e8f0fe;
+    --accent-color: #34a853;
+    --text-color: #202124;
+    --text-secondary: #5f6368;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #dadce0;
+    --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    --shadow-3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; color: var(--primary-color); margin-bottom: 1.5rem; }
+h3 { font-size: 1.25rem; color: var(--text-color); margin-bottom: 1rem; }
+
+p {
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+/* --- Header --- */
+.main-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+    border-bottom: 5px solid var(--primary-hover);
+    box-shadow: var(--shadow-2);
+}
+
+.main-header h1 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.main-header p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Cards --- */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+    padding: 2.5rem;
+    margin-top: 2rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid var(--border-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-3);
+}
+
+/* --- Form --- */
+#query-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#question-input {
+    width: 100%;
+    padding: 1.25rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#question-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--secondary-color);
+}
+
+/* --- Button --- */
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: flex-end;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(26, 115, 232, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(26, 115, 232, 0.4);
+}
+
+.btn:disabled {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* --- Spinner --- */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    display: none;
+    animation: spin 1s linear infinite;
+}
+
+.btn.loading .spinner {
+    display: block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- Results Section --- */
+.answer-box {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+    margin-bottom: 2rem;
+    white-space: pre-wrap;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+#sources-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#sources-list li {
+    background-color: #f1f3f4;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    border: 1px solid #e0e0e0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+#sources-list li:hover {
+    background-color: #e8eaed;
+}
+
+#sources-list li::before {
+    content: "📄";
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+/* --- History Section --- */
+.history-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+    transition: background-color 0.2s ease;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-question {
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.history-question:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.history-answer {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding-left: 1rem;
+    border-left: 3px solid var(--border-color);
+}
+
+/* --- Footer --- */
+.main-footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin-top: 4rem;
+    background-color: var(--text-color);
+    color: #bdc1c6;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    .card {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .main-header {
+        padding: 2.5rem 1rem;
+    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    .btn {
+        width: 100%;
+        padding: 1.2rem;
+    }
+}
+
+/* ============================================================= */
+/* ==========  NUEVO: BOTÓN SECUNDARIO + MODAL  ================= */
+/* ============================================================= */
+
+/* --- Botón secundario (ESTE SÍ FUNCIONA y es clicable) --- */
+.btn-secondary {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--text-secondary);
+    color: white;
+
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-1);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-2);
+}
+
+/* --- Modal para historial (ajustado con scroll) --- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-3);
+    width: 90%;
+    max-width: 600px;
+
+    /* 🔵 ALTURA CONTROLADA */
+    max-height: 75vh;
+
+    /* 🔵 SCROLL INTERNO */
+    overflow-y: auto;
+
+    border: 1px solid var(--border-color);
+}
+
+/* Ajustar los items dentro del historial para que se lean mejor */
+.modal-content .history-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-content .history-item:last-child {
+    border-bottom: none;
+}

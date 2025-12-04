@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente TEA Andalucía</title>
+    <meta name="description" content="Asistente informativo sobre trámites para familias con miembros con autismo en Andalucía.">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container">
+        <h1>Asistente TEA Andalucía</h1>
+        <p>Información clara y accesible para tu familia</p>
+        <button id="btnHistorial" class="btn btn-secondary" style="margin-top: 10px;">📜 Ver historial</button>
+    </div>
+</header>
+
+<main class="container">
+    <section class="query-section card">
+        <h2>¿En qué podemos ayudarte?</h2>
+        <form id="query-form">
+            <textarea id="question-input" name="pregunta" placeholder="Ej: ¿Qué pasos debo seguir para solicitar el reconocimiento de discapacidad?" rows="4" required></textarea>
+            <button type="submit" id="submit-btn" class="btn btn-primary">
+                <span class="btn-text">Consultar</span>
+                <div class="spinner"></div>
+            </button>
+        </form>
+    </section>
+
+    <section id="results-section" class="results-section card" style="display: none;">
+        <h2>Respuesta</h2>
+        <div id="answer-text"></div>
+        <h3>Fuentes consultadas</h3>
+        <ul id="sources-list"></ul>
+    </section>
+
+    <section id="history-section" class="history-section card" style="display: none;">
+        <h2>Historial de la sesión</h2>
+        <div id="history-list"></div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container">
+        <p><strong>Aviso importante:</strong> Este asistente no sustituye asesoramiento profesional.</p>
+    </div>
+</footer>
+
+<div id="modalHistorial" class="modal hidden">
+    <div class="modal-content">
+        <h2>Historial completo</h2>
+        <div id="historialContent"></div>
+
+        <!-- 🔥 BOTÓN CORREGIDO -->
+        <button id="cerrarModal" class="btn btn-secondary">Cerrar</button>
+    </div>
+</div>
+
+<script src="/static/js/script.js"></script>
+</body>
+</html>

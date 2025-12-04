@@ -1,0 +1,22 @@
+# Framework y servidor
+fastapi
+uvicorn[standard]
+flask
+
+# Procesamiento de PDFs y texto
+pypdf
+python-dotenv
+
+# Chunking y LLMs
+langchain
+langchain-community
+# openai
+google-generativeai
+
+# Embeddings y búsqueda vectorial
+sentence-transformers
+numpy
+scikit-learn
+
+# Para manejar datos
+pydantic
