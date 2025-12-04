@@ -124,7 +124,9 @@ python .\scripts\serve_diagram.py
 
 ## 🖼️ Visualizaciones y capturas (para README)
 
-Para facilitar la revisión y la demostración, añado capturas de pantalla en `docs/images/` con los siguientes nombres exactos:
+Para facilitar la revisión y la demostración, añade capturas de pantalla en `docs/images/` con los siguientes nombres exactos:
+
+### Imágenes a crear
 
 - `diagram_architecture.png` — Diagrama de arquitectura general
 - `mermaid_sequence.png` — Captura del diagrama de secuencia Mermaid
@@ -132,6 +134,47 @@ Para facilitar la revisión y la demostración, añado capturas de pantalla en `
 - `agent_created_solicitud.png` — Captura del JSON creado por el agente
 - `logs_analysis.png` — Captura del resultado del análisis de logs o del CSV abierto
 - `banner.png` (opcional) — Banner para la parte superior del README
+
+### Comandos para arrancar servicios
+
+```powershell
+cd C:\Users\juanm\Documents\BigData\rag_Proyecto\rag_teandalucia
+$env:PYTHONPATH = $PWD
+
+# Terminal 1: Arrancar API (Uvicorn)
+python -m uvicorn main:app --host 127.0.0.1 --port 9000 --reload
+
+# Terminal 2: Arrancar servidor de diagramas (opcional)
+python .\scripts\serve_diagram.py
+```
+
+### Ejemplos `curl` para generar vistas
+
+```powershell
+# Consulta RAG (para captura ui_query.png)
+curl -X POST http://127.0.0.1:9000/api/query -H "Content-Type: application/json" -d '{ "query": "¿Cómo solicitar reconocimiento de discapacidad en Andalucía?", "usuario_id": "usuario_juan" }'
+
+# Llamada al agente (para captura agent_created_solicitud.png)
+curl -X POST http://127.0.0.1:9000/api/agent -H "Content-Type: application/json" -d '{ "instruccion": "Generar solicitud de reconocimiento de discapacidad", "usuario_id": "usuario_juan" }'
+
+# Análisis de logs (para captura logs_analysis.png)
+python scripts/analizar_logs.py
+```
+
+### Mover capturas desde Escritorio al repo
+
+```powershell
+Move-Item "$env:USERPROFILE\Desktop\diagram_architecture.png" ".\docs\images\diagram_architecture.png"
+Move-Item "$env:USERPROFILE\Desktop\mermaid_sequence.png" ".\docs\images\mermaid_sequence.png"
+Move-Item "$env:USERPROFILE\Desktop\ui_query.png" ".\docs\images\ui_query.png"
+Move-Item "$env:USERPROFILE\Desktop\agent_created_solicitud.png" ".\docs\images\agent_created_solicitud.png"
+Move-Item "$env:USERPROFILE\Desktop\logs_analysis.png" ".\docs\images\logs_analysis.png"
+```
+
+### Visualizaciones en el README
+
+**Arquitectura del sistema:**  
+![Arquitectura](docs/images/diagram_architecture.png)
 
 **Secuencia RAG → Agente (Mermaid):**
 ```mermaid
@@ -152,12 +195,17 @@ sequenceDiagram
   A-->>API: Ruta del archivo creado
 ```
 
-**Captura de la UI:**  
+**Captura de la UI mostrando consulta y fuentes:**  
 ![Consulta en la UI](docs/images/ui_query.png)
 
-**Solicitud creada por el agente (captura):**  
+**Solicitud creada por el agente (JSON):**  
 ![Solicitud JSON](docs/images/agent_created_solicitud.png)
-```
+
+**Análisis de logs (latencias, endpoints):**  
+![Análisis de logs](docs/images/logs_analysis.png)
+
+**Diagrama de secuencia (captura):**  
+![Diagrama Mermaid](docs/images/mermaid_sequence.png)
 
 ## 🏗️ Estructura del Proyecto
 
