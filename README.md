@@ -285,7 +285,6 @@ Este proyecto está licenciado bajo la Licencia MIT. Ver [LICENSE](LICENSE) para
 
 - **GitHub Issues:** Para reportar bugs o sugerir mejoras
 - **Documentación:** [DOCUMENTACION.md](DOCUMENTACION.md)
-- **Email:** [tu-email@example.com] (opcional)
 
 ---
 
